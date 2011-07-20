@@ -51,6 +51,11 @@ var transportLogs = function() {
         logLines += 1;
       }
     }
+    if (logs.length < 1) {
+      success(ttypes.ResultCode['OK']);
+      return;
+    }
+
     var collection = new mongodb.Collection(client, now.toLocaleString());
     var starts = (new Date()).getTime();
     collection.insert(logs, {safe:true}, function(err, objects) {
