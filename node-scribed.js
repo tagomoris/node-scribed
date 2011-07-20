@@ -56,7 +56,7 @@ var transportLogs = function() {
       return;
     }
 
-    var collection = new mongodb.Collection(client, now.toLocaleString());
+    var collection = new mongodb.Collection(client, 'log' + now.getDate());
     var starts = (new Date()).getTime();
     collection.insert(logs, {safe:true}, function(err, objects) {
       var ends = (new Date()).getTime();
