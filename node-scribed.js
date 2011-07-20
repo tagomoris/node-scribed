@@ -56,7 +56,7 @@ var transportLogs = function() {
     collection.insert(logs, {safe:true}, function(err, objects) {
       var ends = (new Date()).getTime();
       if (err) {
-        console.warn(err.message);
+        console.warn('Mongo insert error: ' + err.message);
         success(ttypes.ResultCode['OK']);
         return;
       }
